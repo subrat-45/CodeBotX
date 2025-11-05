@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const axiosInstance = new axios.create({
-    baseURL : import.meta.env.VITE_API_URL,
+const axiosInstance = axios.create({
+    baseURL : "https://codebotx-backend.onrender.com",
     headers : {
         "Authorization" : `Bearer ${localStorage.getItem("token")}`
     }
