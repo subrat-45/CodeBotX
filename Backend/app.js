@@ -12,7 +12,7 @@ dbConneect();
 const app = express();
 
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://codebotx-frontend.onrender.com",
   credentials: true
 }));
 app.use(morgan('dev'));
