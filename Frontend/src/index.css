@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+.scroll.message-box {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll {
+  scrollbar-width: none;        
+  -ms-overflow-style: none;     
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;                
+}
+
+/* Reset highlight.js default background and spacing */
+.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #e5e7eb !important; /* Tailwind's gray-200 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.5;
+}
+
+/* Optional: customize keywords, strings, etc. */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal {
+  color: #c084fc; /* Tailwind purple-400 */
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-attr,
+.hljs-title,
+.hljs-name {
+  color: #4ade80; /* Tailwind green-400 */
+}
+
+.hljs-comment {
+  color: #9ca3af; /* Tailwind gray-400 */
+  font-style: italic;
+}
