@@ -1,22 +1,27 @@
-// In your main server file (app.js or server.js)
 import mongoose from "mongoose";
 
-const DbConnect = () => {
-  mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
-})
-.then(() => {
-  console.log('✅ MongoDB Connected Successfully');
-  // Start server only after DB connection
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
-})
-.catch((err) => {
-  console.error('❌ MongoDB Connection Error:', err);
-  process.exit(1);
-});
-}
-export default DbConnect;
+const dbConnect = async () => {
+  // Debug: Check if MONGODB_URI is loaded
+  console.log('MONGODB_URI:', process.env.MONGODB_URI);
+  console.log('All env vars:', Object.keys(process.env).filter(k => k.includes('MONGO')));
+  
+  if (!process.env.MONGODB_URI) {
+    console.error('❌ MONGODB_URI is not defined in environment variables!');
+    console.error('Please check your .env file');
+    process.exit(1);
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+    });
+    console.log('✅ MongoDB Connected Successfully');
+  } catch (err) {
+    console.error('❌ MongoDB Connection Error:', err.message);
+    process.exit(1);
+  }
+};
+
+export default dbConnect;
