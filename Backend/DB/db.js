@@ -2,17 +2,17 @@ import mongoose from "mongoose";
 
 const dbConnect = async () => {
   // Debug: Check if MONGODB_URI is loaded
-  console.log('MONGODB_URI:', process.env.MONGODB_URI);
+  console.log('MONGODB_URI:', process.env.MONGO_URI);
   console.log('All env vars:', Object.keys(process.env).filter(k => k.includes('MONGO')));
   
-  if (!process.env.MONGODB_URI) {
+  if (!process.env.MONGO_URI) {
     console.error('❌ MONGODB_URI is not defined in environment variables!');
     console.error('Please check your .env file');
     process.exit(1);
   }
 
   try {
-    await mongoose.connect(process.env.MONGODB_URI, {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 5000,
