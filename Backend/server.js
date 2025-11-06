@@ -6,7 +6,7 @@ import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import projectModel from "./Models/projectModel.js";
 import { generateResult } from "./Services/aiService.js";
-import dbConnect from "./DB/db.js";
+import DbConnect from "./DB/db.js";
 
 const port = process.env.PORT || 3000;
 
@@ -218,7 +218,7 @@ io.engine.on("connection_error", (err) => {
   console.error("Connection error:", err.message);
 });
 
-server.listen(port, () => {
-  dbConnect();
+server.listen(port, async () => {
+  await DbConnect();
   console.log(`Server running on port ${port}`);
 });
