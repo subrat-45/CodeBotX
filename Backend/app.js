@@ -1,13 +1,10 @@
 import express from "express";
 import morgan from "morgan";
-import dbConneect from "./DB/db.js";
 import userRoutes from "./Routes/userRoute.js";
 import projectRoutes from "./Routes/projectRoute.js";
 import cookieParser from "cookie-parser";
 import aiRoutes from "./Routes/aiRoute.js"
 import cors from "cors";
-
-dbConneect();
 
 const app = express();
 
