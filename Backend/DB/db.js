@@ -1,7 +1,8 @@
 // In your main server file (app.js or server.js)
 import mongoose from "mongoose";
 
-mongoose.connect(process.env.MONGODB_URI, {
+const Dbconnect = () => {
+  mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000, // Timeout after 5s instead of 30s
@@ -17,3 +18,5 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.error('❌ MongoDB Connection Error:', err);
   process.exit(1);
 });
+}
+export default DbConnect;
