@@ -1,7 +1,7 @@
 // In your main server file (app.js or server.js)
 import mongoose from "mongoose";
 
-const Dbconnect = () => {
+const DbConnect = () => {
   mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
